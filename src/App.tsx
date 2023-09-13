@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import "./App.css";
 import { TaskProps } from "./Types/TaskProps";
 import TodoTask from "./components/TodoTask";
 
-const App = () => {
+const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
   const [deadline, setDeadline] = useState<number>(0);
   const [todoList, setTodoList] = useState<TaskProps[]>([]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (e.target.name === "task") {
       setTask(e.target.value);
     } else {
@@ -17,7 +17,7 @@ const App = () => {
   };
 
   const addTask = (): void => {
-    const newTask = { taskName: task, deadline: deadline };
+    const newTask: TaskProps = { taskName: task, deadline: deadline };
     setTodoList([...todoList, newTask]);
     setTask("");
     setDeadline(0);

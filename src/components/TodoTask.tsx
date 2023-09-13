@@ -1,6 +1,7 @@
+import React from "react";
 import { TodoTaskProps } from "../Types/TodoTaskProps";
 
-const TodoTask = ({ task, completeTask }: TodoTaskProps) => {
+const TodoTask: React.FC<TodoTaskProps> = ({ task, completeTask }) => {
   return (
     <div className="task">
       <div className="content">
